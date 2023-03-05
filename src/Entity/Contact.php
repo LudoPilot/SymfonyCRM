@@ -6,6 +6,7 @@ use App\Repository\ContactRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
@@ -15,15 +16,23 @@ class Contact
     #[ORM\Column]
     private ?int $id = null;
 
+	#[Assert\NotBlank]
+    #[Assert\Length(max: 50)]
     #[ORM\Column(length: 50)]
     private ?string $firstName = null;
 
+	#[Assert\NotBlank]
+    #[Assert\Length(max: 50)]
     #[ORM\Column(length: 50)]
     private ?string $lastName = null;
 
+	#[Assert\NotBlank]
+    #[Assert\Email]
+    #[Assert\Length(max: 50)]
     #[ORM\Column(length: 50)]
     private ?string $email = null;
 
+	#[Assert\Length(max: 15)]
     #[ORM\Column(length: 15, nullable: true)]
     private ?string $phone = null;
 

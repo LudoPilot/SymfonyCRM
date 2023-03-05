@@ -5,6 +5,42 @@ controllers:
     type: attribute
 
 dashboard:
-  path: /dashboard
-  controller: App\Controller\DashboardController::index
-  methods: [GET]
+    path: /dashboard
+    controller: App\Controller\DashboardController::index
+    methods: [GET]
+
+# User
+user:
+    path: /user
+    controller: App\Controller\UserController::index
+edit_user:
+    path: /user/edit
+    controller: App\Controller\UserController::edit
+change_password:
+    path: /user/change-password
+    controller: App\Controller\UserController::changePassword
+change_email:
+    path: /user/change-email
+    controller: App\Controller\UserController::changeEmail
+
+# Contacts
+contacts:
+    path: /contacts
+    controller: App\Controller\ContactController::index
+create_contact:
+    path: /contacts/create
+    controller: App\Controller\ContactController::create
+edit_contact:
+    path: /contacts/{id}/edit
+    controller: App\Controller\ContactController::edit
+delete_contact:
+    path: /contacts/{id}/delete
+    controller: App\Controller\ContactController::delete
+
+# Messages
+messages:
+    path: /messages
+    controller: App\Controller\MessageController::index
+send_message:
+    path: /messages/send
+    controller: App\Controller\MessageController::send
