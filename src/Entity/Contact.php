@@ -32,8 +32,8 @@ class Contact
     #[ORM\Column(length: 50)]
     private ?string $email = null;
 
-	#[Assert\Length(max: 15)]
-    #[ORM\Column(length: 15, nullable: true)]
+	#[Assert\Length(max: 20)]
+    #[ORM\Column(length: 20, nullable: true)]
     private ?string $phone = null;
 
     #[ORM\ManyToOne(inversedBy: 'contacts')]

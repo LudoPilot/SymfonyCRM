@@ -3,15 +3,15 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
-use App\Factory\UserFactory;
+use App\Factory\ExternalCompanyFactory;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
 
-class UserFixtures extends Fixture
+class ExternalCompanyFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-		UserFactory::createMany(10);
+		ExternalCompanyFactory::createMany(10);
     }
 }

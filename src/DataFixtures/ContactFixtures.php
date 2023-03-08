@@ -2,16 +2,15 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\User;
-use App\Factory\UserFactory;
+use App\Factory\ContactFactory;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
 
-class UserFixtures extends Fixture
+class ContactFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-		UserFactory::createMany(10);
+		ContactFactory::createMany(10);
     }
 }

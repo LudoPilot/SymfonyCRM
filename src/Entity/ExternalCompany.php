@@ -21,7 +21,7 @@ class ExternalCompany
     #[ORM\Column(length: 50)]
     private ?string $email = null;
 
-    #[ORM\Column(length: 12, nullable: true)]
+    #[ORM\Column(length: 20, nullable: true)]
     private ?string $phone = null;
 
     #[ORM\Column(length: 60)]
@@ -33,7 +33,7 @@ class ExternalCompany
     #[ORM\Column(length: 50)]
     private ?string $city = null;
 
-    #[ORM\Column(length: 40, nullable: true)]
+    #[ORM\Column(length: 60, nullable: true)]
     private ?string $country = null;
 
     #[ORM\OneToMany(mappedBy: 'company', targetEntity: Contact::class)]
