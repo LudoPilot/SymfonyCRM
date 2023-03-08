@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ExternalCompany index{% endblock %}
+
+{% block body %}
+    <h1>ExternalCompany index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Zipcode</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for external_company in external_companies %}
+            <tr>
+                <td>{{ external_company.id }}</td>
+                <td>{{ external_company.name }}</td>
+                <td>{{ external_company.email }}</td>
+                <td>{{ external_company.phone }}</td>
+                <td>{{ external_company.address }}</td>
+                <td>{{ external_company.zipcode }}</td>
+                <td>{{ external_company.city }}</td>
+                <td>{{ external_company.country }}</td>
+                <td>
+                    <a href="{{ path('app_external_company_show', {'id': external_company.id}) }}">show</a>
+                    <a href="{{ path('app_external_company_edit', {'id': external_company.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_external_company_new') }}">Create new</a>
+{% endblock %}

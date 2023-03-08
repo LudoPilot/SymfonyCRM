@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ExternalCompany{% endblock %}
+
+{% block body %}
+    <h1>Edit ExternalCompany</h1>
+
+    {{ include('external_company/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_external_company_index') }}">back to list</a>
+
+    {{ include('external_company/_delete_form.html.twig') }}
+{% endblock %}

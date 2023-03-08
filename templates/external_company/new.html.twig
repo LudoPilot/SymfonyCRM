@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ExternalCompany{% endblock %}
+
+{% block body %}
+    <h1>Create new ExternalCompany</h1>
+
+    {{ include('external_company/_form.html.twig') }}
+
+    <a href="{{ path('app_external_company_index') }}">back to list</a>
+{% endblock %}

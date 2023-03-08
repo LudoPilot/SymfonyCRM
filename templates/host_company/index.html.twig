@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HostCompany index{% endblock %}
+
+{% block body %}
+    <h1>HostCompany index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Zipcode</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for host_company in host_companies %}
+            <tr>
+                <td>{{ host_company.id }}</td>
+                <td>{{ host_company.name }}</td>
+                <td>{{ host_company.phone }}</td>
+                <td>{{ host_company.address }}</td>
+                <td>{{ host_company.zipcode }}</td>
+                <td>{{ host_company.city }}</td>
+                <td>{{ host_company.email }}</td>
+                <td>
+                    <a href="{{ path('app_host_company_show', {'id': host_company.id}) }}">show</a>
+                    <a href="{{ path('app_host_company_edit', {'id': host_company.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_host_company_new') }}">Create new</a>
+{% endblock %}
