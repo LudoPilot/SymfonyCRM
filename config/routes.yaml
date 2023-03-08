@@ -9,6 +9,12 @@ dashboard:
     controller: App\Controller\DashboardController::index
     methods: [GET]
 
+# Homepage
+app_homepage:
+    path: /
+    controller: App\Controller\HomeController::index
+
+
 # User
 user:
     path: /user
@@ -22,6 +28,10 @@ change_password:
 change_email:
     path: /user/change-email
     controller: App\Controller\UserController::changeEmail
+
+# Dashboard
+
+# Calendar
 
 # Contacts
 contacts:
