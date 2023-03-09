@@ -1,0 +1,9 @@
+/* Import the necessary styles from the Bootstrap framework */
+@import '~bootstrap';
+
+/* Import the argon-dashboard.scss file */
+@import '../argon/scss/argon-dashboard.scss';
+
+body {
+    background-color: lightgray;
+}
