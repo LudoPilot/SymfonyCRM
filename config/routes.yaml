@@ -32,6 +32,39 @@ change_email:
 # Dashboard
 
 # Calendar
+calendar_events:
+    path: /calendar/events
+    methods: [GET]
+    controller: App\Controller\CalendarController::getEvents
+
+calendar_event_create:
+    path: /calendar/event/create
+    methods: [POST]
+    controller: App\Controller\CalendarController::createEvent
+
+calendar_event_edit:
+    path: /calendar/event/{id}/edit
+    methods: [POST]
+    controller: App\Controller\CalendarController::editEvent
+
+calendar_event_delete:
+    path: /calendar/event/{id}/delete
+    methods: [POST]
+    controller: App\Controller\CalendarController::deleteEvent
+
+# Events
+event_create:
+    path: /event/create
+    methods: [GET, POST]
+    controller: App\Controller\EventController::create
+event_edit:
+    path: /event/{id}/edit
+    methods: [GET, POST]
+    controller: App\Controller\EventController::edit
+event_delete:
+    path: /event/{id}/delete
+    methods: [POST]
+    controller: App\Controller\EventController::delete
 
 # Contacts
 contacts:
