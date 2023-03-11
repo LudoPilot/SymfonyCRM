@@ -1,0 +1,16 @@
+{% extends 'bootstrap_5_layout.html.twig' %}
+
+{% block form_row_class %}mb-4{% endblock %}
+
+{% block form_row %}
+    <div class="row mb-5">
+        {{- form_label(form) -}}
+        <div class="col">
+            {{- form_widget(form, {'attr': {'class': 'form-control'}}) -}}
+            {% if form_help(form) %}
+                <div class="form-text">{{ form_help(form) }}</div>
+            {% endif %}
+            {{- form_errors(form) -}}
+        </div>
+    </div>
+{% endblock %}
