@@ -12,8 +12,10 @@
         "chart.js": "^3.4.1",
         "core-js": "^3.23.0",
         "jquery": "^3.6.3",
+        "postcss": "^8.4.21",
+        "postcss-loader": "^7.0.2",
         "regenerator-runtime": "^0.13.9",
-        "sass": "^1.58.3",
+        "sass": "^1.59.2",
         "sass-loader": "^13.2.0",
         "vue": "^3.0",
         "vue-loader": "^17.0.0",
@@ -34,6 +36,7 @@
         "@fullcalendar/daygrid": "^6.1.4",
         "@fullcalendar/interaction": "^6.1.4",
         "@fullcalendar/list": "^6.1.4",
-        "@fullcalendar/timegrid": "^6.1.4"
+        "@fullcalendar/timegrid": "^6.1.4",
+        "perfect-scrollbar": "^1.5.5"
     }
 }

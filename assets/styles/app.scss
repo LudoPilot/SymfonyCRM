@@ -1,8 +1,8 @@
-/* Import the necessary styles from the Bootstrap framework */
-@import '~bootstrap';
-
 /* Import the argon-dashboard.scss file */
 @import '../argon/scss/argon-dashboard.scss';
+@import '../argon/css/nucleo-icons.css';
+@import '../argon/css/nucleo-svg.css';
+@import '../argon/scss/argon-dashboard/plugins/free/perfect-scrollbar.scss';
 
 body {
     background-color: lightgray;

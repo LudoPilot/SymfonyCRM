@@ -7,6 +7,8 @@
 
 // Import the necessary JS files from the argon-dashboard theme
 import './argon/js/argon-dashboard';
+import './argon/js/plugins/perfect-scrollbar.min.js';
+import './argon/js/plugins/smooth-scrollbar.min.js';
 import './argon/js/plugins/Chart.extension';
 import './argon/js/plugins/bootstrap-notify';
 

@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //   }
 		dateClick: function (info) {
 			let modalEl = document.getElementById("createEventModal");
-			let modalContentEl = modalEl.querySelector(".modal-content");
+			let modalContentEl = modalEl.querySelector(".modal-body");
 			let url = "{{ path('app_event_new') }}";
 		
 			fetch(url)
