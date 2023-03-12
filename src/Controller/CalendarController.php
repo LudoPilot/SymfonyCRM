@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Form\EventType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,13 +12,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CalendarController extends AbstractController
 {
 
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        return $this->render('calendar/index.html.twig', [
+        $event = new Event();
+        $form = $this->createForm(EventType::class, $event);
+        $form->handleRequest($request);
+
+        return $this->render('calendar/calendar.html.twig', [
             'controller_name' => 'CalendarController',
+            'form' => $form->createView(),
         ]);
     }
-
 
 	public function delete(Event $event): Response
     {

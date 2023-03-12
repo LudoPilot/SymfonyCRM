@@ -11,6 +11,7 @@ import './argon/js/plugins/perfect-scrollbar.min.js';
 import './argon/js/plugins/smooth-scrollbar.min.js';
 import './argon/js/plugins/Chart.extension';
 import './argon/js/plugins/bootstrap-notify';
+//import './argon/js/core/bootstrap.bundle.min.js'
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
