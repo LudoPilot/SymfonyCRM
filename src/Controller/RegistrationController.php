@@ -54,7 +54,7 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            //return $this->redirectToRoute('dashboard', ['id' => $user->getId()]);
+			// Redirect to the dashboard
 			return $this->redirectToRoute('dashboard');
         }
 

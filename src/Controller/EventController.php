@@ -10,10 +10,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('/event')]
 class EventController extends AbstractController
 {
+	// Displays all events in a view
     #[Route('/', name: 'app_event_index', methods: ['GET'])]
     public function index(EventRepository $eventRepository): Response
     {
@@ -21,6 +23,33 @@ class EventController extends AbstractController
             'events' => $eventRepository->findAll(),
         ]);
     }
+
+	#[Route('/api/events', methods: ['GET'])]
+	public function apiAllEvents(EventRepository $eventRepository, Request $request): JsonResponse
+	{
+		/*
+		$data = $eventRepository->findAll(); // modifier pour ne pas prendre tous les événements de la BDD
+		return $this->json($data); */
+
+        $user = $this->getUser(); // get the current authenticated user
+
+        $start = new \DateTimeImmutable($request->query->get('start'));
+        $end = new \DateTimeImmutable($request->query->get('end'));
+
+        $events = $eventRepository->findAllEventsByUser($user);
+        $response = [];
+
+        foreach ($events as $event) {
+            $response[] = [
+                'id' => $event->getId(),
+                'title' => $event->getTitle(),
+                'start' => $event->getStartDate()->format('Y-m-d\TH:i:s'),
+                'end' => $event->getEndDate()->format('Y-m-d\TH:i:s'),
+            ];
+        }
+
+        return new JsonResponse($response);
+	}
 
     #[Route('/new', name: 'app_event_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EventRepository $eventRepository, Security $security): Response
@@ -62,9 +91,9 @@ class EventController extends AbstractController
             return $this->redirectToRoute('app_event_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('event/edit.html.twig', [
+        return $this->render('event/edit.html.twig', [
             'event' => $event,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 

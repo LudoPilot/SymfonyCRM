@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Calendrier{% endblock %}
+{% block title %}Calendrier
+{% endblock %}
 
 {% block body %}
 	<h1>Bienvenue sur votre calendrier</h1>
@@ -9,11 +10,11 @@
 	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEventModal">
 		Create event
 	</button>
-
 	<!-- Modal for creating an event -->
 	{% include 'event/new.html.twig' %}
 
 	<div id="calendar"></div>
+
 
 {% endblock %}
 

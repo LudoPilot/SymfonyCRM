@@ -7,7 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
+
+/* We could add #[Groups(['getEvents'])] before id, title and description to include them in a serialization. 
+Then, add $serializer->serialize($event, 'json', ['groups' => ['getEvents']]); in the controller. */
 #[ORM\Entity(repositoryClass: EventRepository::class)]
 class Event
 {

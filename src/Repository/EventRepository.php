@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\User;
 use App\Entity\Event;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Event>
@@ -38,6 +39,16 @@ class EventRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+
+	public function findAllEventsByUser(User $user): array
+	{
+		return $this->createQueryBuilder('e')
+			->andWhere('e.organizer = :user') // The foreign key in the database is organizer_id
+			->setParameter('user', $user)
+			->getQuery()
+			->getResult();
+	}
 
 //    /**
 //     * @return Event[] Returns an array of Event objects

@@ -10,63 +10,81 @@ app_homepage:
     controller: App\Controller\HomeController::index
 
 dashboard:
-    path: /user/{id}/dashboard
+    path: /dashboard
     controller: App\Controller\DashboardController::index
     methods: [GET]
 
 # Calendar
 calendar:
-    path: /user/{id}/calendar
+    path: /calendar
     controller: App\Controller\CalendarController::index
     methods: [GET]
 
-calendar_events:
-    path: /calendar/events
-    controller: App\Controller\CalendarController::events
+# Events
+app_event_index:
+    path: /event/
+    controller: App\Controller\EventController::index
     methods: [GET]
 
-calendar_event_create:
-    path: /calendar/event/create
-    controller: App\Controller\CalendarController::create
-    methods: [POST]
+app_event_new:
+    path: /event/new
+    controller: App\Controller\EventController::new
+    methods: [GET, POST]
 
-calendar_event_edit:
-    path: /calendar/event/{id}/edit
-    controller: App\Controller\CalendarController::edit
-    methods: [POST]
+app_event_show:
+    path: /event/{id}
+    controller: App\Controller\EventController::show
+    methods: [GET]
 
-calendar_event_delete:
-    path: /calendar/event/{id}/delete
-    controller: App\Controller\CalendarController::delete
+app_event_edit:
+    path: /event/{id}/edit
+    controller: App\Controller\EventController::edit
+    methods: [GET, POST]
+
+app_event_delete:
+    path: /event/{id}
+    controller: App\Controller\EventController::delete
     methods: [POST]
 
 # User
 user:
-    path: /user/{id}
+    path: /user/
     controller: App\Controller\UserController::index
 edit_user:
-    path: /user/{id}/edit
+    path: /user/edit
     controller: App\Controller\UserController::edit
 change_password:
-    path: /user/{id}/change-password
+    path: /user/change-password
     controller: App\Controller\UserController::changePassword
 change_email:
-    path: /user/{id}/change-email
+    path: /user/change-email
     controller: App\Controller\UserController::changeEmail
 
 # Contacts
-contacts:
-    path: /contacts
+app_contact_index:
+    path: /contact/
     controller: App\Controller\ContactController::index
-create_contact:
-    path: /contacts/create
-    controller: App\Controller\ContactController::create
-edit_contact:
-    path: /contacts/{id}/edit
+    methods: [GET]
+
+app_contact_new:
+    path: /contact/new
+    controller: App\Controller\ContactController::new
+    methods: [GET, POST]
+
+app_contact_show:
+    path: /contact/{id}
+    controller: App\Controller\ContactController::show
+    methods: [GET]
+
+app_contact_edit:
+    path: /contact/{id}/edit
     controller: App\Controller\ContactController::edit
-delete_contact:
-    path: /contacts/{id}/delete
+    methods: [GET, POST]
+
+app_contact_delete:
+    path: /contact/{id}
     controller: App\Controller\ContactController::delete
+    methods: [POST]
 
 # Messages
 messages:

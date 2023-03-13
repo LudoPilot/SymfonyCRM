@@ -11,27 +11,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CalendarController extends AbstractController
 {
+	/* Only one route in CalendarController. This controller must only display the events. */
+	public function index(Request $request): Response
+	{
+		// The access is authorized only if the user is authenticated
+		$this->denyAccessUnlessGranted('IS_AUTHENTICATED');
+		
+		$event = new Event();
+		$form = $this->createForm(EventType::class, $event);
+		$form->handleRequest($request);
 
-    public function index(Request $request): Response
-    {
-        $event = new Event();
-        $form = $this->createForm(EventType::class, $event);
-        $form->handleRequest($request);
-
-        return $this->render('calendar/calendar.html.twig', [
-            'controller_name' => 'CalendarController',
-            'form' => $form->createView(),
-        ]);
-    }
-
-	public function delete(Event $event): Response
-    {
-        // Delete the event from the database
-        // $entityManager = $this->getDoctrine()->getManager();
-        // $entityManager->remove($event);
-        // $entityManager->flush();
-
-        // Redirect to the calendar events page
-        return $this->redirectToRoute('calendar_events');
-    }
+		return $this->render('calendar/calendar.html.twig', [
+			'controller_name' => 'CalendarController',
+			'form' => $form->createView(),  // Check the purpose of the form(s)
+		]);
+	}
 }
