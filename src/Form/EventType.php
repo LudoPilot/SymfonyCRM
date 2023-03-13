@@ -12,22 +12,25 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class EventType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
-        $builder
-            ->add('title', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('location', TextType::class)
-            ->add('startDate', DateTimeType::class)
-            ->add('endDate', DateTimeType::class)
-            // ->add('organizer') // automai
-        ;
-    }
+	public function buildForm(FormBuilderInterface $builder, array $options): void
+	{
+		$builder
+			->add('title', TextType::class)
+			->add('description', TextareaType::class)
+			->add('location', TextType::class)
+			->add('startDate', DateTimeType::class)
+			->add('endDate', DateTimeType::class)
+			// ->add('organizer') // automai
+		;
+	}
 
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'data_class' => Event::class,
-        ]);
-    }
+	public function configureOptions(OptionsResolver $resolver): void
+	{
+		$resolver->setDefaults([
+			'data_class' => Event::class,
+		]);
+
+		// make sure the organizer option is a User object
+		$resolver->setAllowedTypes('organizer', [User::class]);
+	}
 }

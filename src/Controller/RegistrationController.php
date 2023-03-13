@@ -54,7 +54,8 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('dashboard');
+            //return $this->redirectToRoute('dashboard', ['id' => $user->getId()]);
+			return $this->redirectToRoute('dashboard');
         }
 
         return $this->render('registration/register.html.twig', [
@@ -65,7 +66,7 @@ class RegistrationController extends AbstractController
     #[Route('/verify/email', name: 'app_verify_email')]
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        // $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY'); // temporarily disabled
 
         // validate email confirmation link, sets User::isVerified=true and persists
         try {
