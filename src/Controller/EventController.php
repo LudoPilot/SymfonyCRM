@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/event')]
 class EventController extends AbstractController
@@ -22,9 +23,10 @@ class EventController extends AbstractController
     }
 
     #[Route('/new', name: 'app_event_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EventRepository $eventRepository): Response
+    public function new(Request $request, EventRepository $eventRepository, Security $security): Response
     {
         $event = new Event();
+		$event->setOrganizer($security->getUser()); // Set the current user as the organizer
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
 

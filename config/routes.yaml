@@ -16,7 +16,7 @@ dashboard:
 
 # Calendar
 calendar:
-    path: /calendar
+    path: /user/{id}/calendar
     controller: App\Controller\CalendarController::index
     methods: [GET]
 

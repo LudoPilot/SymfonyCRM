@@ -20,7 +20,7 @@ class EventType extends AbstractType
 			->add('location', TextType::class)
 			->add('startDate', DateTimeType::class)
 			->add('endDate', DateTimeType::class)
-			// ->add('organizer') // automai
+			// ->add('organizer') //
 		;
 	}
 
@@ -31,6 +31,6 @@ class EventType extends AbstractType
 		]);
 
 		// make sure the organizer option is a User object
-		$resolver->setAllowedTypes('organizer', [User::class]);
+		//$resolver->setAllowedTypes('organizer', [User::class]);
 	}
 }
