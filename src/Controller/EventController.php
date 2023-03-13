@@ -79,6 +79,7 @@ class EventController extends AbstractController
         ]);
     }
 
+	// First edit method
     #[Route('/{id}/edit', name: 'app_event_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Event $event, EventRepository $eventRepository): Response
     {
