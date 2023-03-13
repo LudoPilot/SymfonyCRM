@@ -16,27 +16,21 @@ document.addEventListener("DOMContentLoaded", function () {
       right: "dayGridMonth,timeGridWeek,listWeek",
     },
     selectable: true,
-	
-	// Make events clickable 
-	select: function(start, end, allDay) {
-		console.log("Click")
-	},
+
+    dateClick: function (info) {
+		console.log("clicked " + info.dateStr);
+		// open modal here
+		let modal = document.getElementById("createEventModal");
+		modal.style.display = "block";
+		modal.classList.add("show");
+	  },
 	// Fetch events
-	// events: {
-	// 	//url: "{{ path('app_event_index') }}",
-	// 	url: "/event/",
-	// 	method: "GET",
-	// 	failure: function () {
-	// 		alert("There was an error fetching events!");
-	// 	},
-	// }	
 	eventSources: [
 		{url: window.location.protocol + '//' + window.location.host + '/event/api/events', method: 'GET'} // 
 	]
   });
 
-  // calendar.render();
-
+  // Demo events, just to try if the calendar displays them
   let newEvent = {
     title: "New Event",
     start: "2023-03-15T10:00:00",
@@ -54,5 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
   calendar.addEvent(newEvent);
   calendar.addEvent(newEvent2);
   calendar.render();
+  // Add click event listener to document to close modal
+  document.addEventListener("click", function (event) {
+    let modal = document.getElementById("createEventModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+      modal.classList.remove("show");
+    }
+  });
+
 });
 
