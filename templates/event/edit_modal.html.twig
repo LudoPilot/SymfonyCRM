@@ -1,30 +1,30 @@
-<div class="modal fade" id="createEditEventModal" tabindex="-1" aria-labelledby="createEditEventModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="createEditEventModalLabel">Edit Event</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="editEventTitle" class="col-form-label">Title:</label>
-            <input type="text" class="form-control" id="editEventTitle">
-          </div>
-          <div class="mb-3">
-            <label for="editEventStart" class="col-form-label">Start Date:</label>
-            <input type="datetime-local" class="form-control" id="editEventStart">
-          </div>
-          <div class="mb-3">
-            <label for="editEventEnd" class="col-form-label">End Date:</label>
-            <input type="datetime-local" class="form-control" id="editEventEnd">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="saveEditEventBtn">Save changes</button>
-      </div>
-    </div>
-  </div>
+<div id="createEditEventModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Edit Event</h5>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="editEventTitle">Title</label>
+						<input type="text" class="form-control" id="editEventTitle" name="editEventTitle">
+					</div>
+					<div class="form-group">
+						<label for="editEventStart">Start</label>
+						<input type="datetime-local" class="form-control" id="editEventStart" name="editEventStart">
+					</div>
+					<div class="form-group">
+						<label for="editEventEnd">End</label>
+						<input type="datetime-local" class="form-control" id="editEventEnd" name="editEventEnd">
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary save-btn" id="saveChangesButton">Save changes</button>
+			</div>
+		</div>
+	</div>
 </div>
+

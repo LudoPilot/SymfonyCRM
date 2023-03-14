@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,7 +49,8 @@ class EventController extends AbstractController
             ];
         }
 
-        return new JsonResponse($response);
+        //return new JsonResponse($response);
+		return $this->json($response);
 	}
 
     #[Route('/new', name: 'app_event_new', methods: ['GET', 'POST'])]
@@ -97,6 +99,33 @@ class EventController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+	// Edit from the calendar
+	#[Route('/api/events/{id}', name: 'api_event_edit', methods: ['PUT'])]
+	public function apiEditEvent(Request $request, Event $event, EventRepository $eventRepository, EntityManagerInterface $entityManager): JsonResponse
+	{
+		$data = json_decode($request->getContent(), true);
+
+		$event->setTitle($data['editEventTitle']);
+
+		// Description is optional
+		if (isset($data['description'])) {
+			$event->setDescription($data['description']);
+		}
+		$event->setStartDate(new \DateTime($data['editEventStart']));
+		$event->setEndDate(new \DateTime($data['editEventEnd']));
+	
+		$eventRepository->save($event);
+	
+		$entityManager->flush();
+
+		$response = [
+			'status' => 'ok',
+		];
+	
+		return new JsonResponse($response);
+		
+	}
 
     #[Route('/{id}', name: 'app_event_delete', methods: ['POST'])]
     public function delete(Request $request, Event $event, EventRepository $eventRepository): Response
