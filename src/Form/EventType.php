@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use App\Entity\Event;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -20,11 +22,10 @@ class EventType extends AbstractType
 			->add('location', TextType::class)
 			->add('startDate', DateTimeType::class)
 			->add('endDate', DateTimeType::class)
-			/*
-			->add('organizer', EntityType::class, [
-				'class' => User::class,
-				'choice_label' => 'fullName', // use the getFullName method of the User entity
-			]) */
+			// ->add('organizer', EntityType::class, [
+			// 	'class' => User::class,
+			// 	'choice_label' => 'fullName', // use the getFullName method of the User entity
+			// ])
 		;
 	}
 
