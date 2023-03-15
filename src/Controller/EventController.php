@@ -151,7 +151,7 @@ class EventController extends AbstractController
 
 		return new JsonResponse(['success' => true, 'message' => 'Event deleted successfully']);
 
-		// The token seems invalid but we'll check that later
+		// The token seems invalid but we'll check that
 		// if ($this->isCsrfTokenValid('delete' . $event->getId(), $request->request->get('_token'))) {
 		// 	$eventRepository->remove($event, true);
 		// 	$entityManager->flush();
