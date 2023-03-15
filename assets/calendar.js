@@ -160,11 +160,16 @@ document.addEventListener("DOMContentLoaded", function () {
 		// Add event listener for event deletion
 		let deleteBtn = document.querySelector("#createEditEventModal .delete-btn");
 		deleteBtn.addEventListener("click", function () {
-		  fetch(window.location.protocol + '//' + window.location.host + '/event/api/events/' + info.event.id, {
+			console.log("Bouton pressé")
+		  fetch(window.location.protocol + '//' + window.location.host + '/event/calendar/' + info.event.id, {
 			method: 'DELETE'
 		  })
 		  .then(response => response.json())
-		  .then(data => console.log(data))
+		  //.then(data => console.log(data))
+		  .then(data => {
+			console.log(data);
+			console.log(typeof data);
+		})
 		  .catch(error => console.error(error));
 	  
 		  // Close modal
