@@ -62,6 +62,11 @@ class HostCompany
         return $this;
     }
 
+	public function __toString()
+	{
+		return $this->name;
+	}	
+
     public function getPhone(): ?string
     {
         return $this->phone;

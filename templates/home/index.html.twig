@@ -3,16 +3,40 @@
 {% block title %}Accueil - SymfonyCRM / LumenCRM {% endblock %}
 
 {% block body %}
-
-	<h1>Accueil</h1>
-	<p>Bienvenue sur LumenCRM, un mini-CRM conçu pour vous aider à gérer efficacement votre entreprise et vos relations clients.
-
-LumenCRM a été développé chez CCI Campus Alsace à Strasbourg, France, pour offrir une solution simple mais puissante aux entreprises de toutes tailles.
-
-Avec LumenCRM, vous pouvez planifier et organiser facilement vos tâches et événements à venir grâce à notre calendrier intégré. Vous pouvez également gérer vos contacts de manière collaborative et suivre vos relations clients avec notre outil de suivi de la relation client.
-
-LumenCRM est un outil en constante évolution pour répondre aux besoins de ses utilisateurs. Nous nous efforçons d'offrir un support technique de qualité, ainsi que des mises à jour régulières pour garantir que notre outil est toujours à la pointe de la technologie.
-
-Inscrivez-vous dès maintenant pour découvrir comment LumenCRM peut aider votre entreprise à être plus productive et efficace.</p>
+  <main class="container-fluid bg-light pt-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h1 class="text-center mb-5">Bienvenue sur LumenCRM</h1>
+          <p class="text-center lead mb-5">Un mini-CRM conçu pour vous aider à gérer efficacement votre entreprise et vos relations clients.</p>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card shadow-sm border-0 mb-5">
+            <img class="card-img-top" src="{{ asset('build/images/AdobeStock_234264849.jpeg') }}" alt="Card image cap">
+            <div class="card-body text-center">
+              <h5 class="card-title">Planifiez et organisez vos tâches et événements</h5>
+              <p class="card-text">Grâce à notre calendrier intégré, vous pouvez facilement planifier et organiser toutes vos tâches et événements à venir. Ne manquez plus jamais une échéance importante ou un événement clé.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow-sm border-0 mb-5">
+            <img class="card-img-top" src="{{ asset('build/images/AdobeStock_275642797.jpeg') }}" alt="Card image cap">
+            <div class="card-body text-center">
+              <h5 class="card-title">Gérez vos contacts de manière collaborative</h5>
+              <p class="card-text">Notre outil de suivi de la relation client vous permet de gérer vos contacts de manière collaborative. Vous pouvez facilement suivre vos relations clients et travailler en équipe pour offrir un service de qualité à vos clients.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <p class="text-center">LumenCRM a été développé chez CCI Campus Alsace à Strasbourg, France, pour offrir une solution simple mais puissante aux entreprises de toutes tailles. LumenCRM est un outil en constante évolution pour répondre aux besoins de ses utilisateurs. Nous nous efforçons d'offrir un support technique de qualité, ainsi que des mises à jour régulières pour garantir que notre outil est toujours à la pointe de la technologie. Inscrivez-vous dès maintenant pour découvrir comment LumenCRM peut aider votre entreprise à être plus productive et efficace.</p>
+        </div>
+      </div>
+    </div>
+  </main>
 
 {% endblock %}

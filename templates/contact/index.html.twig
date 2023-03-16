@@ -3,39 +3,66 @@
 {% block title %}Contact index{% endblock %}
 
 {% block body %}
-    <h1>Contact index</h1>
+	
+	<div class="min-height-300 bg-primary position-absolute w-100"></div>
+	{% include 'components/sidebar.html.twig' %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for contact in contacts %}
-            <tr>
-                <td>{{ contact.id }}</td>
-                <td>{{ contact.firstName }}</td>
-                <td>{{ contact.lastName }}</td>
-                <td>{{ contact.email }}</td>
-                <td>{{ contact.phone }}</td>
-                <td>
-                    <a href="{{ path('app_contact_show', {'id': contact.id}) }}">show</a>
-                    <a href="{{ path('app_contact_edit', {'id': contact.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_contact_new') }}">Create new</a>
+	<main class="main-content position-relative border-radius-lg ps">
+		<div class="container-fluid py-4">
+			<div class="row">
+				<div class="col-md-12 px-4">
+					<h2 class="text-light">Contact index</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="card mb-4">
+						<div class="card-header pb-0">
+							<h4>Liste des contacts</h3>
+						</div>
+						<div class="card-body px-0 pt-0 pb-2">
+							<div class="table-responsive p-0">
+								<table class="table align-items-center mb-0">
+									<thead>
+										<tr>
+											<th class="text-uppercase text-secondary text-lg font-weight-bolder opacity-7">Id</th>
+											<th class="text-uppercase text-secondary text-lg font-weight-bolder opacity-7">First Name</th>
+											<th class="text-uppercase text-secondary text-lg font-weight-bolder opacity-7">Last Name</th>
+											<th class="text-uppercase text-secondary text-lg font-weight-bolder opacity-7">Email</th>
+											<th class="text-uppercase text-secondary text-lg font-weight-bolder opacity-7">Phone</th>
+											<th class="text-uppercase text-secondary text-lg font-weight-bolder opacity-7">Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for contact in contacts %}
+											<tr>
+												<td><div class="d-flex px-2 py-1">{{ contact.id }}</div></td>
+												<td>{{ contact.firstName }}</td>
+												<td>{{ contact.lastName }}</td>
+												<td>{{ contact.email }}</td>
+												<td>{{ contact.phone }}</td>
+												<td>
+													<a href="{{ path('app_contact_show', {'id': contact.id}) }}" class="btn btn-primary">Show</a>
+													<a href="{{ path('app_contact_edit', {'id': contact.id}) }}" class="btn btn-success">Edit</a>
+												</td>
+											</tr>
+										{% else %}
+											<tr>
+												<td colspan="6">No records found</td>
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>	
+					</div>	
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<a href="{{ path('app_contact_new') }}" class="btn btn-primary">Create new</a>
+				</div>
+			</div>
+		</div>
+	</main>
 {% endblock %}

@@ -34,9 +34,9 @@ class ExternalCompanyController extends AbstractController
             return $this->redirectToRoute('app_external_company_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('external_company/new.html.twig', [
+        return $this->render('external_company/new.html.twig', [
             'external_company' => $externalCompany,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 
