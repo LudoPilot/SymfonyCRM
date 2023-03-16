@@ -4,22 +4,30 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Bienvenue sur votre calendrier</h1>
+	<body class="g-side-navshow bg-gray-100">
+		
 
-	<!-- Button trigger modal for creating an event -->
-	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEventModal">
-		Create event
-	</button>
-	<!-- Modal for creating an event -->
-	{% include 'event/new.html.twig' %}
+		{% include 'components/sidebar.html.twig' %}
+		<main class="main-content position-relative max-heiht-vh-100 h-100 border-radius-lg ps ps--active-y">
+			<div class="container-fluid py-4">
+				<div>
+					<h1>Bienvenue sur votre calendrier</h1>
+				</div>
+				<div>
+					<!-- Button trigger modal for creating an event -->
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEventModal">
+						Create event
+					</button>
+					<!-- Modal for creating an event -->
+					{% include 'event/new.html.twig' %}
+					<!-- Modal for editing an event -->
+					{% include 'event/edit_modal.html.twig' %}							
+				</div>
 
-	<!-- Modal for editing an event -->
-	{% include 'event/edit_modal.html.twig' %}
-	
-	<main>
-		<div id="calendar"></div>
-	</main>
-	
+				<div id="calendar"></div>
+			</div>
+		</main>
+	</body>
 
 
 {% endblock %}
