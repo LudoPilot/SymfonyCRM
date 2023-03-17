@@ -13,12 +13,12 @@
 				<div class="row">
 					<div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
 						<div class="card card-plain">
-							<div class="card-header pb-0 text-start">
+							<div class="card-header pb-0 text-start bg-gradient-info">
 								<h4 class="font-weight-bolder">Connexion</h4>
-								<p class="mb-0">Entrez votre email et votre mot de passe pour vous connecter.</p>
+								<p class="mb-0 text-white">Entrez votre email et votre mot de passe pour vous connecter.</p>
 							</div>
 
-							<div class="card-body">
+							<div class="card-body bg-white">
 								<form action="{{ path('app_login') }}" method="post">
 									{# <div class="d-flex flex-column mb-3">
 										<label for="username" class="mb-2">Username</label>
@@ -52,7 +52,7 @@
 						</div>
 					</div>
 					<div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-						<div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url(''); background-size: cover;">
+						<div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('{{ asset('build/images/style.jpeg')}}'); background-size: cover;">
 							<span class="mask bg-gradient-primary opacity-6"></span>
 							<h4 class="mt-5 text-white font-weight-bolder position-relative">"Le style au service du CRM"</h4>
 							<p class="text-white position-relative">L'esthétique d'un outil aide beaucoup à son appréciation par ses utilisateurs.</p>

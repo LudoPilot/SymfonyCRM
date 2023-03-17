@@ -22,9 +22,18 @@ border-0 border-radius-xl my-3 fixed-start ms-4 ps">
 				<li class="nav-item">
 					<a href="{{ path('app_event_index') }}" class="nav-link">
 						<div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+							<i class="ni ni-bullet-list-67 text-warning text-sm opacity-10"></i>
+						</div>
+						<span class="nav-link-text ms-1">Liste des événements</span>					
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href="{{ path('calendar') }}" class="nav-link">
+						<div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 							<i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
 						</div>
-						<span class="nav-link-text ms-1">Événements/réunions</span>					
+						<span class="nav-link-text ms-1">Calendrier</span>					
 					</a>
 				</li>
 
@@ -91,6 +100,15 @@ border-0 border-radius-xl my-3 fixed-start ms-4 ps">
 							<i class="ni ni-collection text-info text-sm opacity-10"></i>
 						</div>
 						<span class="nav-link-text ms-1">Sign up</span>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href="{{ path('app_contact_request') }}" class="nav-link">
+						<div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center">
+							<i class="ni ni-email-83 text-info text-sm opacity-10"></i>
+						</div>
+						<span class="nav-link-text ms-1">Contactez-nous</span>
 					</a>
 				</li>
 			</ul>
